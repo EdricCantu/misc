@@ -1,0 +1,70 @@
+
+{
+  "list":[
+    {
+      "mirror":"OpenJDK",
+      "name":"Java",
+      "url":"https://download.java.net/java/GA/jdk19.0.1/afdd2e245b014143b62ccb916125e3ce/10/GPL/openjdk-19.0.1_linux-x64_bin.tar.gz",
+      "format":"archive.bin",
+      "roots":1,
+      "add":[//main is always top.
+        {
+          "type":"dev.lang.interp.comp",
+          "location":"bin/java",
+          "link":"java"
+        }
+      ]
+    },
+    {
+      "name":"Node.js",
+      "mirror":false,
+      "version":"19.4.0"
+      "format":"local.script",
+      "script":[
+        "#!/usr/bin/env bash",
+        "NODIN=$(mktemp -d)",
+        "cd $NODIN",
+        "wget -o arc https://nodejs.org/dist/v19.4.0/node-v19.4.0-linux-x64.tar.xz",
+        "tar xf arc "
+      ],
+      "roots":1,
+      "add":[
+        {
+          "type":"dev.lang.interp.jit",
+          "location":"bin/node",
+          "link":"node"
+        },
+        {
+          "type":"dev.lang.interp.jit.pkg",
+          "location":"//write",
+          "script":[
+            "#!uBin/bin/Node.js/19.4.0/bin/node",
+            "require('')"
+            
+          ],
+          "link":"npm"
+        },
+        {
+          "type":"dev.lang.interp.jit.pkg.test",
+          "location":"lib/node_modules/npm/bin/npx",
+          "link":"npx"
+        }
+      ]  
+    }
+  ],
+  "groups":[
+    {
+      "name":"compilers, assemblers, interpreters and package managers",
+      "list":[0]
+    },
+    {
+      "name":"emulators and VMs",
+      "list":[0]
+    },
+    {
+      "name":"emulators and VMs",
+      "list":[0]
+    }
+  ],
+  "order":[0,1,2,3,4,5]
+}
