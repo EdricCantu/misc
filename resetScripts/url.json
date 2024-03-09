@@ -7,7 +7,8 @@
       "url":"https://download.java.net/java/GA/jdk19.0.1/afdd2e245b014143b62ccb916125e3ce/10/GPL/openjdk-19.0.1_linux-x64_bin.tar.gz",
       "format":"archive.bin",
       "roots":1,
-      "add":[//main is always top.
+      "add":[
+        "//main is always top.",
         {
           "type":"dev.lang.interp.comp",
           "location":"bin/java",
@@ -18,7 +19,7 @@
     {
       "name":"Node.js",
       "mirror":false,
-      "version":"19.4.0"
+      "version":"19.4.0",
       "format":"local.script",
       "script":[
         "#!/usr/bin/env bash",

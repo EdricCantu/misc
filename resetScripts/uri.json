@@ -1,0 +1,31 @@
+{
+  "build":{
+    "help":{
+      "make":""
+    },
+    "comp":{
+      "jdk":"",
+      "clang":""
+    },
+    "run":{
+      "jre":""
+    },
+    "gradle":"",
+    "ninja":""
+  },
+  "nprog":[
+    {
+      "name":"x",
+      "version":"static/lts/latest",
+      "built":true,
+      "depend":"",
+      "dl":""
+    },
+    {
+      "name":"x",
+      "version":"static/lts/latest",
+      "built":true,
+      "dl":""
+    }
+  ]
+}
