@@ -1,0 +1,22 @@
+Input: 
+  text:number
+  text:telnum
+  text:emailaddr
+  text:sweet / text
+  text:short
+  text:extended
+
+  order a,b,x,y
+  pairing x->(y), a->(b)
+  complete abcdefg(h/z/u)ijklmnop
+
+  math:function
+  math:handgraph:line
+  math:handgraph:quad
+  math:handgraph:cube
+  math:handgraph:sine
+  math:handgraph:expo
+  math:handgraph:cosi
+  math:expression:Point2D
+  math:expression:DomainRange
+  math:expression: 
