@@ -1,5 +1,7 @@
 Input: 
-  text:number
+  text:integer
+  text:decimal
+  text:uinteger
   text:telnum
   text:emailaddr
   text:sweet / text
@@ -10,13 +12,29 @@ Input:
   pairing x->(y), a->(b)
   complete abcdefg(h/z/u)ijklmnop
 
-  math:function
   math:handgraph:line
   math:handgraph:quad
   math:handgraph:cube
   math:handgraph:sine
   math:handgraph:expo
   math:handgraph:cosi
+  math:num:complex
+  math:
+  math:fraction
+  math:mixedfraction
+  math:clockhands
   math:expression:Point2D
+  math:expression:Point3D
+  math:expression:angle
+  math:expression
   math:expression:DomainRange
-  math:expression: 
+  math:expression:matrix
+  math:expression:equation
+  math:expression:equation:isolated
+  math:expression:function
+  math:vector
+  math:summation
+  math:integral
+  math:compositefunc
+  math:system
+  math:
