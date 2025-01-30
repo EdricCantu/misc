@@ -8,12 +8,13 @@ function tui(){
   dim=$(tput dim)
   esc=$(printf "\u1b")
   nwl=$(echo)
+  retnum=n
   case $1 in
     "radio")
       opt=("$@")
       case $2 in
-        "-n") opt=("${opt[@]:3}"); out=$3; retnum=o;;
-        *) opt=("${opt[@]:2}") out=$2 ;;
+        "-n") opt=("${opt[@]:3}"); out=$3; retnum=y;;
+        *) opt=("${opt[@]:2}") out=$2; retnum=n;;
       esac
       function refresh() {
         echo -ne $clr
@@ -34,7 +35,7 @@ function tui(){
           $nwl) break ;;
         esac
       done
-      [ $retnum ] && export tui=$sel || export tui=${opt[sel]}
+      [ $retnum = "y" ] && export tui=$sel || export tui=${opt[sel]}
       ;;
     "checkbox") # Use "checkbox" instead of "radio" to indicate multiple selection
       opt=("$@")
@@ -71,19 +72,27 @@ function tui(){
               sel=_$sel
               (( $sel = 1 - $sel ))
               sel=${sel:1}
-            else
+            else # if cv == sel, aka, if the final option is selected, exit. the final option, in text as the final argument, is unable to be selected.
               break
             fi
             ;;
         esac
       done
-      tui=""
+      tui=()
       for i in "${!opt[@]}"; do
-        [ $retnum ] && val=$i || val=${opt[i]}
+        [ $retnum = "y" ] && val=$i || val=${opt[i]}
         i=_$i
-        (( $i > 0 )) && tui="$tui $val" #if it's selected
+        (( $i > 0 )) && tui+=($val) #if it's selected
       done
       export tui
+      ;;
+    "")
+      echo "TUI v0.5"
+      echo "argument syntax:"
+      echo 'tui checkbox ?{-n} <title> (<option> <option>...) <exit text>'
+      echo 'tui radio ?{-n} <title> (<option> <option>...)'
+      echo '-n return makes the command output indices instead of the the selected option\'s text'
+      echo 'output is stored in $tui. for checkbox, tui is an array'
       ;;
   esac
 }
